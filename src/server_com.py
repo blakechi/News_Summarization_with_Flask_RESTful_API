@@ -4,6 +4,14 @@ import json
 class ServerCom():
     def __init__(self, url=None, query=None):
         with open('./server.json') as f:
+            """
+            In server.json:
+            
+            {
+                "url": "your/server/url/for/query"
+            }
+            """
+
             data = json.load(f)
         self._url = url if url is not None else data['url']
         self._query = query

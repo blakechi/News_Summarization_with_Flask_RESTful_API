@@ -1,7 +1,7 @@
 import asyncio
 from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
-from serverCom import ServerCom
+from server_com import ServerCom
 
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
