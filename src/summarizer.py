@@ -1,3 +1,6 @@
+"""
+    An REST API for news summarization
+"""
 from flask import Flask, jsonify, request
 
 import torch

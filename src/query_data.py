@@ -1,3 +1,10 @@
+"""
+If:
+    ModuleNotFoundError: No module named 'gql.transport.aiohttp'
+Solution:
+    pip uninstall gql
+    pip install --pre gql[all]
+"""
 import asyncio
 from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
@@ -40,18 +47,19 @@ if __name__ == "__main__":
         }
     """
     result = asyncio.run(query_data(server_com.url, gql_query))
+    news = result['Article'][1]
 
     # Model
     # multi-news(long), newsroom(medium), wikihow (short)
     tokenizer = AutoTokenizer.from_pretrained("google/pegasus-newsroom")  
     model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-newsroom").to(DEVICE)
 
-    batch = tokenizer.prepare_seq2seq_batch(result['Article'][1]['content'], truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
+    batch = tokenizer.prepare_seq2seq_batch(news['content'], truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
     translated = model.generate(**batch)
     tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
 
-    print(result['Article'][1]['headline'])
+    print(news['headline'])
     print("=============================")
-    print(result['Article'][1]['content'])
+    print(news['content'])
     print("=============================")
     print(tgt_text)
