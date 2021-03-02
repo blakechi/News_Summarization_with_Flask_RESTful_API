@@ -1,12 +1,16 @@
 import asyncio
 from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
-from server_com import ServerCom
 
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from transformers import BartForConditionalGeneration, BartTokenizer
+
+from server_com import ServerCom
+
+
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
 
 async def query_data(url, gql_query):
     transport = AIOHTTPTransport(url=url)
@@ -20,6 +24,7 @@ async def query_data(url, gql_query):
         result = await session.execute(query)
 
         return result
+
 
 if __name__ == "__main__":
     server_com = ServerCom()
