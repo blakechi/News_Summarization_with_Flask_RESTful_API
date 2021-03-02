@@ -1,9 +1,9 @@
 """
-If:
-    ModuleNotFoundError: No module named 'gql.transport.aiohttp'
-Solution:
-    pip uninstall gql
-    pip install --pre gql[all]
+    If:
+        ModuleNotFoundError: No module named 'gql.transport.aiohttp'
+    Solution:
+        pip uninstall gql
+        pip install --pre gql[all]
 """
 import asyncio
 from gql import gql, Client

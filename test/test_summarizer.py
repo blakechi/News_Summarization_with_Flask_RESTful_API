@@ -1,8 +1,8 @@
 """
-Reference from:
-    https://levelup.gitconnected.com/simple-api-using-flask-bc1b7486af88
-    https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html
-    https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask
+    Reference from:
+        https://levelup.gitconnected.com/simple-api-using-flask-bc1b7486af88
+        https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html
+        https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask
 """
 
 import os
