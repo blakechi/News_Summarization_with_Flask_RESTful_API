@@ -5,7 +5,7 @@
     ```
     pip3 install -r requirements.txt
     ```
-2. Create server.json for query (Only needed for **Usage 2.** and **3.**)
+2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
     ```
     (Under the root directory)
     vim server.json
@@ -29,3 +29,15 @@
     ```
     python3 test/test_pegasus.py
     ```
+
+## Citation
+```bibtex
+@misc{zhang2019pegasus,
+    title={PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization},
+    author={Jingqing Zhang and Yao Zhao and Mohammad Saleh and Peter J. Liu},
+    year={2019},
+    eprint={1912.08777},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+```
