@@ -5,7 +5,7 @@ class ServerCom():
     def __init__(self, url=None, query=None):
         with open('./server.json') as f:
             """
-            In server.json:
+            news_summarization/server.json:
             
             {
                 "url": "your/server/url/for/query"
