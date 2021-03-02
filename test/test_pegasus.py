@@ -5,6 +5,11 @@
         pip uninstall gql
         pip install --pre gql[all]
 """
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.getcwd(), "src"))
+
 import asyncio
 from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
@@ -47,7 +52,7 @@ if __name__ == "__main__":
         }
     """
     result = asyncio.run(query_data(server_com.url, gql_query))
-    news = result['Article'][1]
+    news = result['Article'][0]
 
     # Model
     # multi-news(long), newsroom(medium), wikihow (short)

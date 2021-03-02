@@ -1,0 +1,31 @@
+# News Summarization with Pegasus
+
+## Install
+1. Install packages
+    ```
+    pip3 install -r requirements.txt
+    ```
+2. Create server.json for query (Only needed for **Usage 2.** and **3.**)
+    ```
+    (Under the root directory)
+    vim server.json
+
+    (Inside server.json)
+    {
+        "url": "your/server/url/for/query"
+    }
+    ```
+
+## Usage
+1. Deploy REST API
+    ```
+    python3 src/summarizer.py
+    ```
+2. Test the API
+    ```
+    python3 test/test_summarizer.py
+    ```
+3. Test Pegasus
+    ```
+    python3 test/test_pegasus.py
+    ```
