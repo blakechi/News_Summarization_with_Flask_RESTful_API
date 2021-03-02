@@ -3,6 +3,8 @@
 ## Install
 1. Install packages
     ```
+    python3 -m venv env
+    source env/bin/activate
     pip3 install -r requirements.txt
     ```
 2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
@@ -21,7 +23,8 @@
     ```
     python3 src/summarizer.py
     ```
-2. Test the API
+2. Test the API\
+    Run **1.** first, then:
     ```
     python3 test/test_summarizer.py
     ```

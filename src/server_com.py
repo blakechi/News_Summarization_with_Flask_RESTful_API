@@ -2,6 +2,9 @@ import json
 
 
 class ServerCom():
+    """
+    A simple container for server related infomation.
+    """
     def __init__(self, url=None, query=None):
         with open('./server.json') as f:
             """
