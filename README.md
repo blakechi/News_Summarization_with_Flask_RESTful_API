@@ -1,4 +1,4 @@
-# News Summarization with Pegasus
+# REST API for News Summarization with Pegasus
 
 ## Install
 1. Install packages
