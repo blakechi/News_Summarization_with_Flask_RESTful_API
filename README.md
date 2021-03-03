@@ -9,16 +9,16 @@
     ```
 2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
     * Under the root directory
-    ```
-    vim server.json
-    ```
+        ```
+        vim server.json
+        ```
     
     * Inside server.json
-    ```
-    {
-        "url": "your/server/url/for/query"
-    }
-    ```
+        ```
+        {
+            "url": "your/server/url/for/query"
+        }
+        ```
 
 ## Usage
 1. Deploy REST API
