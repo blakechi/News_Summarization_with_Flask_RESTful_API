@@ -37,6 +37,8 @@ async def query_data(url, gql_query):
 
 if __name__ == "__main__":
     server_com = ServerCom()
+
+    # Use your own query instead
     gql_query = """
         query getArticles {
             Article(order_by: {timestamp: asc}, where: {timestamp: {_gte: "2020-02-01T00:00:00", _lte: "2020-02-01T12:00:00"}}) {
@@ -52,8 +54,8 @@ if __name__ == "__main__":
 
     news = result['Article'][1]
     payload = {
-        "id": news["id"],
-        "content": news['content']
+        "id": news["id"],  # news' id
+        "content": news['content']  # a string of the news
     }
 
     r = requests.post(REST_API_URL, json=payload).json()

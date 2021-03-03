@@ -40,6 +40,8 @@ async def query_data(url, gql_query):
 
 if __name__ == "__main__":
     server_com = ServerCom()
+
+    # Use your own query instead
     gql_query = """
         query getArticles {
             Article(order_by: {timestamp: asc}, where: {timestamp: {_gte: "2020-02-01T00:00:00", _lte: "2020-03-01T00:00:00"}}) {
@@ -54,17 +56,21 @@ if __name__ == "__main__":
     result = asyncio.run(query_data(server_com.url, gql_query))
     news = result['Article'][0]
 
+    # Put your news here
+    content = news['content']  # a string of news
+    headline = news['headline']  # a string of news' headline
+
     # Model
     # multi-news(long), newsroom(medium), wikihow (short)
     tokenizer = AutoTokenizer.from_pretrained("google/pegasus-newsroom")  
     model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-newsroom").to(DEVICE)
 
-    batch = tokenizer.prepare_seq2seq_batch(news['content'], truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
+    batch = tokenizer.prepare_seq2seq_batch(content, truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
     translated = model.generate(**batch)
-    tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
+    summary = tokenizer.batch_decode(translated, skip_special_tokens=True)
 
-    print(news['headline'])
+    print(headline)
     print("=============================")
-    print(news['content'])
+    print(content)
     print("=============================")
-    print(tgt_text)
+    print(summary)
