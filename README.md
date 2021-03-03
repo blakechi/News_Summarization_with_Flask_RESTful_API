@@ -2,10 +2,11 @@
 
 ## Install
 1. Install packages
+    > Note: Use python3.8 and update pip in virtual enviroment
     ```
     python3 -m venv env
     source env/bin/activate
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
     ```
 2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
     ```
@@ -21,16 +22,16 @@
 ## Usage
 1. Deploy REST API
     ```
-    python3 src/summarizer.py
+    python src/summarizer.py
     ```
 2. Test the API\
     Run **1.** first, then:
     ```
-    python3 test/test_summarizer.py
+    python test/test_summarizer.py
     ```
 3. Test Pegasus
     ```
-    python3 test/test_pegasus.py
+    python test/test_pegasus.py
     ```
 
 ## Citation
