@@ -9,7 +9,7 @@
     pip install -r requirements.txt
     ```
 2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
-    * Under the root directory
+    * Under the repository directory
         ```console
         vim server.json
         ```
