@@ -1,4 +1,4 @@
-# REST API for News Summarization with Pegasus
+# Flask RESTful API for News Summarization with Pegasus
 
 ## Install
 1. Install packages
