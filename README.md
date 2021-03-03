@@ -15,7 +15,7 @@
         ```
     
     * Inside server.json
-        ```
+        ```json
         {
             "url": "your/server/url/for/query"
         }
