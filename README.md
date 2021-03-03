@@ -9,15 +9,17 @@
     pip install -r requirements.txt
     ```
 2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
-    ```
-    (Under the root directory)
-    vim server.json
-
-    (Inside server.json)
-    {
-        "url": "your/server/url/for/query"
-    }
-    ```
+    * Under the root directory
+        ```
+        vim server.json
+        ```
+    
+    * Inside server.json
+        ```
+        {
+            "url": "your/server/url/for/query"
+        }
+        ```
 
 ## Usage
 1. Deploy REST API
