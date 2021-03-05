@@ -43,7 +43,7 @@
 3. Test Pegasus
     * Go through **1.** first.
     * Modify the query in `test_summarizer.py` or add any news you want as string without using query.
-    * You can also change different fine tuned Pegasus from [Hugging Face](https://huggingface.co/models?pipeline_tag=summarization). 
+    * You can also change different fine-tuned Pegasus from [Hugging Face](https://huggingface.co/models?pipeline_tag=summarization). 
     * Then:
         ```console
         python test/test_pegasus.py
