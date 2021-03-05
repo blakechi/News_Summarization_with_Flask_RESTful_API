@@ -34,6 +34,12 @@
         ```console
         python test/test_summarizer.py
         ```
+    > **If**: ModuleNotFoundError: No module named 'gql.transport.aiohttp' \
+    > **Solution**:
+    >    ```console
+    >    pip uninstall gql
+    >    pip install --pre gql[all]
+    >    ```
 3. Test Pegasus
     * Go through **1.** first.
     * Modify the query in `test_summarizer.py` or add any news you want as string without using query.
@@ -42,6 +48,12 @@
         ```console
         python test/test_pegasus.py
         ```
+    > **If**: ModuleNotFoundError: No module named 'gql.transport.aiohttp' \
+    > **Solution**:
+    >    ```console
+    >    pip uninstall gql
+    >    pip install --pre gql[all]
+    >    ```
 
 ## Citation
 ```bibtex
