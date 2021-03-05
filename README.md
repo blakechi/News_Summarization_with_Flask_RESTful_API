@@ -27,14 +27,20 @@
     python src/summarizer.py
     ```
 2. Test the API\
-    Run **1.** first, then:
-    ```console
-    python test/test_summarizer.py
-    ```
-3. Test Pegasus
-    ```console
-    python test/test_pegasus.py
-    ```
+    * Go through **1.** first.
+    * Modify the query in `test_summarizer.py` or add any news you want as string without using query.
+    * Then:
+        ```console
+        python test/test_summarizer.py
+        ```
+3. Test Pegasus\
+    * Go through **1.** first.
+    * Modify the query in `test_summarizer.py` or add any news you want as string without using query.
+    * You can also change different fine tuned Pegasus from [Hugging Face](https://huggingface.co/models?pipeline_tag=summarization). 
+    * Then:
+        ```console
+        python test/test_pegasus.py
+        ```
 
 ## Citation
 ```bibtex

@@ -1,3 +1,4 @@
+.vscode
 env
 server.json
-.vscode
+test/test_different_fine_tuned_pegasus.py
