@@ -22,6 +22,7 @@ def summarize():
     data = {"success": False}
 
     if request.method == "POST":
+        # assume there is only one news here
         news = request.get_json()
         content = news["content"]
         content_length = len(news["content"])
@@ -39,7 +40,6 @@ def summarize():
         else:
             contents.append(content)
 
-        # assume there is only one news here
         batch = tokenizer.prepare_seq2seq_batch(contents, truncation=False, padding='longest', return_tensors="pt").to(DEVICE)
 
         summary = model.generate(**batch)
