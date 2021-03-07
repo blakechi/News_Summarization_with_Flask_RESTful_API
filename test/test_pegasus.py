@@ -65,9 +65,9 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained("google/pegasus-cnn_dailymail")  
     model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail").to(DEVICE)
 
-    batch = tokenizer.prepare_seq2seq_batch(content, truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
-    translated = model.generate(**batch)
-    summary = tokenizer.batch_decode(translated, skip_special_tokens=True)
+    batch = tokenizer.prepare_seq2seq_batch([content, result['Article'][1]['content']], truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
+    output = model.generate(**batch)
+    summary = tokenizer.batch_decode(output, skip_special_tokens=True)
 
     print(headline)
     print("=============================")

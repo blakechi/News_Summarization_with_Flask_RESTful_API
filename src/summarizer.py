@@ -1,6 +1,8 @@
 """
     An REST API for news summarization
 """
+import math
+
 from flask import Flask, jsonify, request
 
 import torch
@@ -8,6 +10,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from transformers import BartForConditionalGeneration, BartTokenizer
 
 
+MAX_LENGTH = 1024
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 tokenizer = None
 model = None
@@ -20,15 +23,30 @@ def summarize():
 
     if request.method == "POST":
         news = request.get_json()
-        print(news["id"])
-        
+        content = news["content"]
+        content_length = len(news["content"])
+
+        contents = []
+        if content_length > MAX_LENGTH:
+            split_times = math.ceil(content_length / MAX_LENGTH)
+            split_size = split_times*content_length
+
+            for idx in range(split_times):
+                if idx + 1 == split_times:  # if last
+                    contents.append(content[split_size*idx : split_size*(idx + 1)])
+                else:
+                    contents.append(content[split_size*idx : split_size*(idx + 1)])
+        else:
+            contents.append(content)
+
         # assume there is only one news here
-        batch = tokenizer.prepare_seq2seq_batch(news["content"], truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
-        translated = model.generate(**batch)
-        tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
+        batch = tokenizer.prepare_seq2seq_batch(contents, truncation=False, padding='longest', return_tensors="pt").to(DEVICE)
+
+        summary = model.generate(**batch)
+        summary = tokenizer.batch_decode(summary, skip_special_tokens=True)
         
         data["id"] = news["id"]
-        data["summary"] = tgt_text
+        data["summary"] = summary[0] if content_length <= MAX_LENGTH else " ".join(summary)
         data["success"] = True
 
     return jsonify(data)
