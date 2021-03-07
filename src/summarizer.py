@@ -33,7 +33,7 @@ def summarize():
 
             for idx in range(split_times):
                 if idx + 1 == split_times:  # if last
-                    contents.append(content[split_size*idx : split_size*(idx + 1)])
+                    contents.append(content[split_size*idx :])
                 else:
                     contents.append(content[split_size*idx : split_size*(idx + 1)])
         else:
