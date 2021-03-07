@@ -36,8 +36,8 @@ def summarize():
 
 def load_model():
     global tokenizer, model
-    tokenizer = AutoTokenizer.from_pretrained("google/pegasus-newsroom")  
-    model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-newsroom").to(DEVICE)
+    tokenizer = AutoTokenizer.from_pretrained("google/pegasus-cnn_dailymail")  
+    model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail").to(DEVICE)
 
 
 if __name__=='__main__':

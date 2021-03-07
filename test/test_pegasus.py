@@ -61,9 +61,9 @@ if __name__ == "__main__":
     headline = news['headline']  # a string of news' headline
 
     # Model
-    # multi-news(long), newsroom(medium), wikihow (short)
-    tokenizer = AutoTokenizer.from_pretrained("google/pegasus-newsroom")  
-    model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-newsroom").to(DEVICE)
+    # multi-news(long), newsroom(medium), wikihow (short), cnn_dailymail
+    tokenizer = AutoTokenizer.from_pretrained("google/pegasus-cnn_dailymail")  
+    model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail").to(DEVICE)
 
     batch = tokenizer.prepare_seq2seq_batch(content, truncation=True, padding='longest', return_tensors="pt").to(DEVICE)
     translated = model.generate(**batch)
