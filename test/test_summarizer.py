@@ -54,8 +54,10 @@ if __name__ == "__main__":
 
     news = result['Article'][1]
     payload = {
-        "id": news["id"],  # news' id
-        "content": news['content']  # a string of the news
+        # news' id
+        "id": news["id"],
+        # a string of the news
+        "content": " ".join([news['content'], news['content'], news['content']])  # let it suspass the maximum length a Pegasus can accept
     }
 
     r = requests.post(REST_API_URL, json=payload).json()
