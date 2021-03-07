@@ -60,9 +60,9 @@ if __name__ == "__main__":
         "content": " ".join([news['content'], news['content'], news['content']])  # let it suspass the maximum length a Pegasus can accept
     }
 
-    r = requests.post(REST_API_URL, json=payload).json()
+    req = requests.post(REST_API_URL, json=payload).json()
 
-    if r["success"]:
-        print(r["summary"])
+    if req["success"]:
+        print(req["summary"])
     else:
         print("Request failed")

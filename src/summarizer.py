@@ -29,7 +29,7 @@ def summarize():
 
         contents = []
         if content_length > MAX_LENGTH:
-            split_times = math.ceil(content_length / MAX_LENGTH)
+            split_times = math.ceil(content_length/MAX_LENGTH)
             split_size = math.floor(content_length/split_times)
 
             for idx in range(split_times):
