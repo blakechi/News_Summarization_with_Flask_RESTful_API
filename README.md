@@ -4,14 +4,14 @@
 1. Install packages
 
     > Note: Use python3.8 and update pip in virtual enviroment
-    ```console
+    ```bash
     python3 -m venv env
     source env/bin/activate
     pip install -r requirements.txt
     ```
 2. Create `server.json` for query (Only needed for **Usage 2.** and **3.**)
     * Under the repository directory
-        ```console
+        ```bash
         vim server.json
         ```
     
@@ -24,19 +24,19 @@
 
 ## Usage
 1. Deploy REST API
-    ```console
+    ```bash
     python src/summarizer.py
     ```
 2. Test the API
     * Go through **1.** first.
     * Modify the query in `test_summarizer.py` or add any news you want as string without using query.
     * Then:
-        ```console
+        ```bash
         python test/test_summarizer.py
         ```
     > **If**: ModuleNotFoundError: No module named 'gql.transport.aiohttp' \
     > **Solution**:
-    >    ```console
+    >    ```bash
     >    pip uninstall gql
     >    pip install --pre gql[all]
     >    ```
@@ -45,12 +45,12 @@
     * Modify the query in `test_summarizer.py` or add any news you want as string without using query.
     * You can also change different pretrained Pegasus from [Hugging Face](https://huggingface.co/models?pipeline_tag=summarization). 
     * Then:
-        ```console
+        ```bash
         python test/test_pegasus.py
         ```
     > **If**: ModuleNotFoundError: No module named 'gql.transport.aiohttp' \
     > **Solution**:
-    >    ```console
+    >    ```bash
     >    pip uninstall gql
     >    pip install --pre gql[all]
     >    ```
