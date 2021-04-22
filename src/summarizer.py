@@ -58,6 +58,6 @@ def load_model():
     model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail").to(DEVICE)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     load_model()
     app.run()
